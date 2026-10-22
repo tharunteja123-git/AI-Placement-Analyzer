@@ -2,6 +2,7 @@ import asyncio
 
 from app.database.session import AsyncSessionLocal
 from app.models.question_bank import QuestionBank
+from app.services.rag.embeddings import embed_batch
 
 SEED_QUESTIONS = [
       {"skill_tag": "react", "role_tag": "frontend", "difficulty": "mid",
