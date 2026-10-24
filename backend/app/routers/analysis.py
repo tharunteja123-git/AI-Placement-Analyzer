@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, Form, HTTPException, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.db.session import get_db
+from app.database.session import get_db
 from app.models.analysis import Analysis, JobDescription, Resume
 from app.models.schemas import GapAnalysisResponse
 from app.services.file_parser import extract_text
