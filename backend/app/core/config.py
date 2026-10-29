@@ -1,10 +1,10 @@
-from pydantic_core import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     database_url:str
     anthropic_api_key:str
     claude_model:str="claude-sonnet-4-6"
-    open_api_key:str
+    openai_api_key:str
     embedding_model:str="text-embedding-3-small"
     embedding_dim: int =1536
     environment:str ="development"
@@ -16,4 +16,3 @@ class Settings(BaseSettings):
         return [origin.strip() for origin in self.cors_origins.split(",")]
 
 settings=Settings()
-

@@ -1,7 +1,7 @@
 from openai import AsyncOpenAI
 from app.core.config import settings
 
-_client= AsyncOpenAI(api_key=settings.open_api_key)
+_client= AsyncOpenAI(api_key=settings.openai_api_key)
 
 async def embed_text(text:str)->list[float]:
     """Embed a single piece of text. Used both when indexing the question bank
