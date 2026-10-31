@@ -15,17 +15,19 @@ export default function ScoreRing({score}) {
     const[shown,setshown]=useState(0);
     const[drawn,setDrawn]=useState(false);
     useEffect(()=>{
-        const reduced=wnidow.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (reduced){
+          const frame = requestAnimationFrame(() => {
             setshown(target);
             setDrawn(true);
-            return;
+          });
+          return () => cancelAnimationFrame(frame);
         } 
-        setDrawn(true);
         const start=performance.now();
         const duration=1200;
         let frame=0;
         const tick=(now)=>{
+          setDrawn(true);
             const t=Math.min(1,(now-start)/duration)
             const eased=1-Math.pow(1-t,3);
             setshown(Math.round(eased*target));
