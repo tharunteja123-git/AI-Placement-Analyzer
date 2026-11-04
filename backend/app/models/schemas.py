@@ -2,7 +2,7 @@ import uuid
 from pydantic import BaseModel
 
 class ImprovementSuggestion(BaseModel):
-    skill: str
+    area: str
     suggestion: str
 
 class GapAnalysisResponse(BaseModel):
@@ -17,8 +17,8 @@ class InterviewQuestionItem(BaseModel):
     question:str
 
 class InterviewQuestionsResponse(BaseModel):
-    analysis_id:uuid.UUID
-    interview_questions:list[InterviewQuestionItem]
+    analysis_id: uuid.UUID
+    questions: list[InterviewQuestionItem]
 
 class AnalysisRequest(BaseModel):
     job_title:str
